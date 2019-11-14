@@ -1,4 +1,5 @@
-﻿using Fehlzeitenerfassung.IO.CSVIO;
+﻿using Fehlzeitenerfassung.IO.CSVHandler;
+using Fehlzeitenerfassung.IO.DataProvider;
 using Fehlzeitenerfassung.Storage;
 using System.Windows.Forms;
 
@@ -14,9 +15,8 @@ namespace Fehlzeitenerfassung
         private void FormSchuelerVerwaltung_Load(object sender, System.EventArgs e)
         {
             Storages.Init();
-            CSVIO.Init();
-
-            MessageBox.Show("Initiated");
+            DataProvider.Init();
+            CSVHandler.Init();
         }
     }
 }
