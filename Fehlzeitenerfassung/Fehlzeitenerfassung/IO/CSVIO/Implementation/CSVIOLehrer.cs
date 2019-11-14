@@ -1,14 +1,12 @@
-﻿using Fehlzeitenerfassung.Structure.Person.Schueler;
+﻿using Fehlzeitenerfassung.Structure.Person.Lehrer;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Fehlzeitenerfassung.IO.CSVIOHandler.Implementation
+namespace Fehlzeitenerfassung.IO.CSVIO.Implementation
 {
-    class CSVIOSchueler : ICSVIOHandler<Schueler>
+    class CSVIOLehrer : ICSVIOHandler<Lehrer>
     {
 
         public string[] ReadLines(string path)
@@ -51,31 +49,29 @@ namespace Fehlzeitenerfassung.IO.CSVIOHandler.Implementation
             return csvEntries.ToArray();
         }
 
-        public List<Schueler> Convert(string[][] parsedLines)
+        public List<Lehrer> Convert(string[][] parsedLines)
         {
-            List<Schueler> schuelerListe = new List<Schueler>();
+            List<Lehrer> lehrerListe = new List<Lehrer>();
 
             foreach (string[] parts in parsedLines)
             {
                 string name = parts[0];
                 string vorname = parts[1];
                 DateTime geburtstag = System.Convert.ToDateTime(parts[2]);
-                double anfahrtsweg = double.Parse(parts[3]);
-                bool buskarte = parts[4] == "1";
-                Schueler schueler = new Schueler(name, vorname, geburtstag, anfahrtsweg, buskarte);
 
-                for (int i = 5; i < parts.Length; i += 3)
+                List<Fach> fächer = new List<Fach>();
+
+                for (int i = 3; i < parts.Length; i += 2)
                 {
-                    DateTime datum = System.Convert.ToDateTime(parts[i]);
-                    int fehlstunden = int.Parse(parts[i + 1]);
-                    int entschuldigteStunden = int.Parse(parts[i + 2]);
-                    schueler.RegistriereFehlstunde(datum, fehlstunden, entschuldigteStunden);
+                    string bezeichnung = parts[i];
+                    string kürzel = parts[i + 1];
+                    fächer.Add(new Fach(bezeichnung, kürzel));
                 }
 
-                schuelerListe.Add(schueler);
+                lehrerListe.Add(new Lehrer(name, vorname, geburtstag, fächer.ToArray()));
             }
 
-            return schuelerListe;
+            return lehrerListe;
         }
     }
 }

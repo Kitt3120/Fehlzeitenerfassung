@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fehlzeitenerfassung.IO.CSVIOHandler
+namespace Fehlzeitenerfassung.IO.CSVIO
 {
     interface ICSVIOHandler<T>
     {

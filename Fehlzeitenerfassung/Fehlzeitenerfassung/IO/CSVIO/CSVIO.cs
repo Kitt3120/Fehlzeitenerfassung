@@ -1,4 +1,4 @@
-﻿using Fehlzeitenerfassung.IO.CSVIOHandler.Implementation;
+﻿using Fehlzeitenerfassung.IO.CSVIO.Implementation;
 using Fehlzeitenerfassung.Structure.Person.Lehrer;
 using Fehlzeitenerfassung.Structure.Person.Schueler;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fehlzeitenerfassung.IO.CSVIOHandler
+namespace Fehlzeitenerfassung.IO.CSVIO
 {
     class CSVIO
     {
