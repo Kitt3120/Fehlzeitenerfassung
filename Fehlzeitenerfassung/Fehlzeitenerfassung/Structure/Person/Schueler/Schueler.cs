@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fehlzeitenerfassung.Structure.Person.Schüler
+namespace Fehlzeitenerfassung.Structure.Person.Schueler
 {
-    class Schüler : Person
+    class Schueler : Person
     {
         public double Anfahrtsweg { get; set; }
         public bool Buskarte { get; set; }
         public List<Fehlstunde> Fehlstunden { get; set; }
 
-        public Schüler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte) : base(name, vorname, geburtstag)
+        public Schueler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte) : base(name, vorname, geburtstag)
         {
             Name = name;
             Vorname = vorname;
@@ -23,7 +23,7 @@ namespace Fehlzeitenerfassung.Structure.Person.Schüler
             Fehlstunden = new List<Fehlstunde>();
         }
 
-        public Schüler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte, List<Fehlstunde> fehlstunden) : base(name, vorname, geburtstag)
+        public Schueler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte, List<Fehlstunde> fehlstunden) : base(name, vorname, geburtstag)
         {
             Name = name;
             Vorname = vorname;

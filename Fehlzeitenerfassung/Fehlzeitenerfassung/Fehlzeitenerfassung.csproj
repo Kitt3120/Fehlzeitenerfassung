@@ -61,14 +61,14 @@
     <Compile Include="IO\CSVIOHandler\CSVIO.cs" />
     <Compile Include="IO\CSVIOHandler\ICSVIOHandler.cs" />
     <Compile Include="IO\CSVIOHandler\Implementation\CSVIOLehrer.cs" />
-    <Compile Include="IO\CSVIOHandler\Implementation\CSVIOSchüler.cs" />
+    <Compile Include="IO\CSVIOHandler\Implementation\CSVIOSchueler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structure\Person\Lehrer\Fach.cs" />
     <Compile Include="Structure\Person\Lehrer\Lehrer.cs" />
     <Compile Include="Structure\Person\Person.cs" />
-    <Compile Include="Structure\Person\Schüler\Fehlstunde.cs" />
-    <Compile Include="Structure\Person\Schüler\Schüler.cs" />
+    <Compile Include="Structure\Person\Schueler\Fehlstunde.cs" />
+    <Compile Include="Structure\Person\Schueler\Schueler.cs" />
     <EmbeddedResource Include="FormSchuelerVerwaltung.resx">
       <DependentUpon>FormSchuelerVerwaltung.cs</DependentUpon>
     </EmbeddedResource>
