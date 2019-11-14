@@ -58,16 +58,19 @@
     <Compile Include="FormSchuelerVerwaltung.Designer.cs">
       <DependentUpon>FormSchuelerVerwaltung.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO\CSVIOHandler\CSVIO.cs" />
-    <Compile Include="IO\CSVIOHandler\ICSVIOHandler.cs" />
-    <Compile Include="IO\CSVIOHandler\Implementation\CSVIOLehrer.cs" />
-    <Compile Include="IO\CSVIOHandler\Implementation\CSVIOSchueler.cs" />
+    <Compile Include="IO\CSVIO\CSVIO.cs" />
+    <Compile Include="IO\CSVIO\ICSVIOHandler.cs" />
+    <Compile Include="IO\CSVIO\Implementation\CSVIOLehrer.cs" />
+    <Compile Include="IO\CSVIO\Implementation\CSVIOSchueler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\Implementation\InMemoryStorage.cs" />
+    <Compile Include="Storage\IStorage.cs" />
+    <Compile Include="Storage\Storages.cs" />
     <Compile Include="Structure\Person\Lehrer\Fach.cs" />
     <Compile Include="Structure\Person\Lehrer\Lehrer.cs" />
     <Compile Include="Structure\Person\Person.cs" />
-    <Compile Include="Structure\Person\Schueler\Fehlstunde.cs" />
+    <Compile Include="Structure\Person\Schueler\Fehlzeit.cs" />
     <Compile Include="Structure\Person\Schueler\Schueler.cs" />
     <EmbeddedResource Include="FormSchuelerVerwaltung.resx">
       <DependentUpon>FormSchuelerVerwaltung.cs</DependentUpon>
