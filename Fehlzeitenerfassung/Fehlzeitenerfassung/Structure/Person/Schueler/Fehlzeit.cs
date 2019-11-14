@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.Structure.Person.Schueler
 {
-    class Fehlstunde
+    class Fehlzeit
     {
         public DateTime Datum { get; set; }
         public int Fehlstunden { get; set; }
         public int EntschuldigteStunden { get; set; }
+        public int UnentschuldigteStunden { get
+            {
+                return Fehlstunden - EntschuldigteStunden;
+            } }
         public bool Entschuldigt { get
             {
                 return Fehlstunden == EntschuldigteStunden;
             } }
 
-        public Fehlstunde(DateTime datum, int fehlstunden, int entschuldigteStunden)
+        public Fehlzeit(DateTime datum, int fehlstunden, int entschuldigteStunden)
         {
             Datum = datum.Date; //Entfernt Zeit
             Fehlstunden = fehlstunden;
             EntschuldigteStunden = entschuldigteStunden;
         }
 
-        public Fehlstunde(DateTime datum, int fehlstunden, bool entschuldigt)
+        public Fehlzeit(DateTime datum, int fehlstunden, bool entschuldigt)
         {
             Datum = datum.Date; //Entfernt Zeit
             Fehlstunden = fehlstunden;

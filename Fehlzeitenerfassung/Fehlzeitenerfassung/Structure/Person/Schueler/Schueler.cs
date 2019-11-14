@@ -11,7 +11,7 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
     {
         public double Anfahrtsweg { get; set; }
         public bool Buskarte { get; set; }
-        public List<Fehlstunde> Fehlstunden { get; set; }
+        public List<Fehlzeit> Fehlzeiten { get; set; }
 
         public Schueler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte) : base(name, vorname, geburtstag)
         {
@@ -20,37 +20,30 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
             Geburtstag = geburtstag.Date; //Entfernt Zeit
             Anfahrtsweg = anfahrtsweg;
             Buskarte = buskarte;
-            Fehlstunden = new List<Fehlstunde>();
+            Fehlzeiten = new List<Fehlzeit>();
         }
 
-        public Schueler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte, List<Fehlstunde> fehlstunden) : base(name, vorname, geburtstag)
+        public Schueler(string name, string vorname, DateTime geburtstag, double anfahrtsweg, bool buskarte, List<Fehlzeit> fehlzeiten) : base(name, vorname, geburtstag)
         {
             Name = name;
             Vorname = vorname;
             Geburtstag = geburtstag;
             Anfahrtsweg = anfahrtsweg;
             Buskarte = buskarte;
-            Fehlstunden = fehlstunden;
-            Fehlstunden = new List<Fehlstunde>();
+            Fehlzeiten = fehlzeiten;
         }
 
-        public override string ToString() => $"Name: {Name}\nVorname: {Vorname}\nAlter: {(DateTime.Now.Date - Geburtstag).Days / 365}\nAnfahrtsweg: {Anfahrtsweg}\nBuskarte: {Buskarte}\nFehlstunden: {FehlstundenSumme(false)}\nDavon unentschuldigt: {FehlstundenSumme(false)}";
+        public override string ToString() => $"Name: {Name}\nVorname: {Vorname}\nAlter: {(DateTime.Now.Date - Geburtstag).Days / 365}\nAnfahrtsweg: {Anfahrtsweg}\nBuskarte: {Buskarte}\nFehlstunden: {FehlzeitenSumme()} (E:{EntschuldigteStundenSumme()}/{UnentschuldigteStundenSumme()}:U)";
 
-        public bool HatGefehltAm(DateTime date) => Fehlstunden.Any(fehlstunde => fehlstunde.Datum == date.Date); //date.Date, um Zeit zu ignorieren, falls ausversehen angegeben
-        public int FehlstundenSumme() => Fehlstunden.Select(fehlstunde => fehlstunde.Fehlstunden).Sum();
-        public int FehlstundenSumme(bool berücksichtigeEntschuldigte)
-        {
-            int summe = FehlstundenSumme();
-            if (berücksichtigeEntschuldigte)
-                summe -= EntschuldigteStundenSumme();
-            return summe;
-        }
-        public int EntschuldigteStundenSumme() => Fehlstunden.Select(fehlstunde => fehlstunde.EntschuldigteStunden).Sum();
-        public void RegistriereFehlstunde(DateTime date, int fehlstunden, int entschuldigteStunden) => Fehlstunden.Add(new Fehlstunde(date, fehlstunden, entschuldigteStunden));
-        public void RegistriereFehlstunde(DateTime date, int fehlstunden, bool entschuldigt) => Fehlstunden.Add(new Fehlstunde(date, fehlstunden, entschuldigt));
-        public void RegistriereFehlstunde(DateTime date, int fehlstunden) => Fehlstunden.Add(new Fehlstunde(date, fehlstunden, false));
-        public void RegistriereFehlstunde(int fehlstunden) => Fehlstunden.Add(new Fehlstunde(DateTime.Now, fehlstunden, false));
-        public void UnregistriereFehlstunde(Fehlstunde fehlstunde) => Fehlstunden.Remove(fehlstunde);
-        public void UnregistriereFehlstunde(DateTime date) => Fehlstunden.Remove(Fehlstunden.Where(fehlstunde => fehlstunde.Datum == date.Date).FirstOrDefault());
+        public bool HatGefehltAm(DateTime datum) => Fehlzeiten.Any(fehlzeit => fehlzeit.Datum == datum.Date); //datum.Date, um Zeit zu ignorieren, falls ausversehen angegeben
+        public int FehlzeitenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.Fehlstunden).Sum();
+        public int EntschuldigteStundenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.EntschuldigteStunden).Sum();
+        public int UnentschuldigteStundenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.UnentschuldigteStunden).Sum();
+        public void RegistriereFehlstunde(DateTime datum, int fehlstunden, int entschuldigteStunden) => Fehlzeiten.Add(new Fehlzeit(datum, fehlstunden, entschuldigteStunden));
+        public void RegistriereFehlstunde(DateTime datum, int fehlstunden, bool entschuldigt) => Fehlzeiten.Add(new Fehlzeit(datum, fehlstunden, entschuldigt));
+        public void RegistriereFehlstunde(DateTime datum, int fehlstunden) => Fehlzeiten.Add(new Fehlzeit(datum, fehlstunden, false));
+        public void RegistriereFehlstunde(int fehlstunden) => Fehlzeiten.Add(new Fehlzeit(DateTime.Now, fehlstunden, false));
+        public void UnregistriereFehlstunde(Fehlzeit fehlzeit) => Fehlzeiten.Remove(fehlzeit);
+        public void UnregistriereFehlstunde(DateTime datum) => Fehlzeiten.Remove(Fehlzeiten.Where(fehlstunde => fehlstunde.Datum == datum.Date).FirstOrDefault());
     }
 }
