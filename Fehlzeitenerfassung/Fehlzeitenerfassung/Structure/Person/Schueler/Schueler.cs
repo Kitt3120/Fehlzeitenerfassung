@@ -34,7 +34,6 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
         }
 
         public override string ToString() => $"Name: {Name}\nVorname: {Vorname}\nAlter: {(DateTime.Now.Date - Geburtstag).Days / 365}\nAnfahrtsweg: {Anfahrtsweg}\nBuskarte: {Buskarte}\nFehlstunden: {FehlzeitenSumme()} (E:{EntschuldigteStundenSumme()}/{UnentschuldigteStundenSumme()}:U)";
-
         public bool HatGefehltAm(DateTime datum) => Fehlzeiten.Any(fehlzeit => fehlzeit.Datum == datum.Date); //datum.Date, um Zeit zu ignorieren, falls ausversehen angegeben
         public int FehlzeitenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.Fehlstunden).Sum();
         public int EntschuldigteStundenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.EntschuldigteStunden).Sum();
