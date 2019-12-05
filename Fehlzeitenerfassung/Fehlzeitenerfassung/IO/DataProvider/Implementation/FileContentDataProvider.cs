@@ -12,7 +12,7 @@ namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
         public T Provide<T>(string[] args) where T : IConvertible
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has not be the file path");
+                throw new NotImplementedException("args[0] has to be the file path");
 
             string content = string.Empty;
             using (StreamReader sr = new StreamReader(args[0]))
@@ -26,7 +26,7 @@ namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
         public async Task<T> ProvideAsync<T>(string[] args) where T : IConvertible
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has not be the file path");
+                throw new NotImplementedException("args[0] has to be the file path");
 
             string content = string.Empty;
             using (StreamReader sr = new StreamReader(args[0]))
