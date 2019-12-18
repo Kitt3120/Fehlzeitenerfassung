@@ -18,12 +18,19 @@ namespace Fehlzeitenerfassung
 
         private async void FormSchuelerVerwaltung_Load(object sender, System.EventArgs e)
         {
+            //Initialisierung von Schnittstellenimplementationen
             Storages.Init();
             DataProvider.Init();
             CSVHandler.Init();
 
-            Storages.InMemoryStorage.Store("Lists.Lehrer", CSVHandler.LehrerHandler.Convert(CSVHandler.ParseLines((await DataProvider.FileContentDataProvider.ProvideAsync<string>(new string[] { "Path" })).Split('\n'), ';')));
-
+            //Lehrerdaten in den InMemoryStorage einlesen
+            //Storages.InMemoryStorage.Store("Lists.Lehrer", CSVHandler.LehrerHandler.Convert(CSVHandler.ParseLines((await DataProvider.FileContentDataProvider.ProvideAsync<string>(new string[] { "Lehrer.csv" })).Split('\n'), ';')));
+            Storages.InMemoryStorage.Store("Lists.Lehrer", new List<Lehrer>());
+            //Combobox-Einträge hinzufügen
+            foreach (Lehrer lehrer in Storages.InMemoryStorage.Restore<List<Lehrer>>("Lists.Lehrer"))
+            {
+                comboBoxBereichsleiter.Items.Add(lehrer.Name);
+            }
         }
     }
 }

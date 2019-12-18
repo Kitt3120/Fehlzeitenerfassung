@@ -7,7 +7,7 @@ namespace Fehlzeitenerfassung.Storage.Implementation
     {
         private Dictionary<string, object> _data;
 
-        public void Init()
+        public InMemoryStorage()
         {
             _data = new Dictionary<string, object>();
         }
