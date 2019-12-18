@@ -57,6 +57,9 @@
             this.textBoxFehlzeitenAnzeigenAusgabe = new System.Windows.Forms.TextBox();
             this.comboBoxFehlzeitenAnzeigenSchueler = new System.Windows.Forms.ComboBox();
             this.labelFehlzeitenAnzeigenSchueler = new System.Windows.Forms.Label();
+            this.buttonFehlzeitenAnzeigenDatenLaden = new System.Windows.Forms.Button();
+            this.buttonFehlzeitenAnzeigenDatenSichern = new System.Windows.Forms.Button();
+            this.buttonBeenden = new System.Windows.Forms.Button();
             this.groupBoxSchuelerVerwaltung.SuspendLayout();
             this.groupBoxFehlzeitenVerwalten.SuspendLayout();
             this.groupBoxFehlzeitenAnzeigen.SuspendLayout();
@@ -288,6 +291,9 @@
             this.groupBoxFehlzeitenAnzeigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonBeenden);
+            this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonFehlzeitenAnzeigenDatenSichern);
+            this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonFehlzeitenAnzeigenDatenLaden);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.textBoxFehlzeitenAnzeigenAusgabe);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.comboBoxFehlzeitenAnzeigenSchueler);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.labelFehlzeitenAnzeigenSchueler);
@@ -306,7 +312,7 @@
             this.textBoxFehlzeitenAnzeigenAusgabe.Location = new System.Drawing.Point(6, 49);
             this.textBoxFehlzeitenAnzeigenAusgabe.Multiline = true;
             this.textBoxFehlzeitenAnzeigenAusgabe.Name = "textBoxFehlzeitenAnzeigenAusgabe";
-            this.textBoxFehlzeitenAnzeigenAusgabe.Size = new System.Drawing.Size(479, 159);
+            this.textBoxFehlzeitenAnzeigenAusgabe.Size = new System.Drawing.Size(479, 130);
             this.textBoxFehlzeitenAnzeigenAusgabe.TabIndex = 5;
             // 
             // comboBoxFehlzeitenAnzeigenSchueler
@@ -325,6 +331,33 @@
             this.labelFehlzeitenAnzeigenSchueler.Size = new System.Drawing.Size(43, 13);
             this.labelFehlzeitenAnzeigenSchueler.TabIndex = 3;
             this.labelFehlzeitenAnzeigenSchueler.Text = "Schüler";
+            // 
+            // buttonFehlzeitenAnzeigenDatenLaden
+            // 
+            this.buttonFehlzeitenAnzeigenDatenLaden.Location = new System.Drawing.Point(9, 185);
+            this.buttonFehlzeitenAnzeigenDatenLaden.Name = "buttonFehlzeitenAnzeigenDatenLaden";
+            this.buttonFehlzeitenAnzeigenDatenLaden.Size = new System.Drawing.Size(129, 23);
+            this.buttonFehlzeitenAnzeigenDatenLaden.TabIndex = 6;
+            this.buttonFehlzeitenAnzeigenDatenLaden.Text = "Schülerdaten laden...";
+            this.buttonFehlzeitenAnzeigenDatenLaden.UseVisualStyleBackColor = true;
+            // 
+            // buttonFehlzeitenAnzeigenDatenSichern
+            // 
+            this.buttonFehlzeitenAnzeigenDatenSichern.Location = new System.Drawing.Point(144, 185);
+            this.buttonFehlzeitenAnzeigenDatenSichern.Name = "buttonFehlzeitenAnzeigenDatenSichern";
+            this.buttonFehlzeitenAnzeigenDatenSichern.Size = new System.Drawing.Size(129, 23);
+            this.buttonFehlzeitenAnzeigenDatenSichern.TabIndex = 7;
+            this.buttonFehlzeitenAnzeigenDatenSichern.Text = "Schülerdaten sichern...";
+            this.buttonFehlzeitenAnzeigenDatenSichern.UseVisualStyleBackColor = true;
+            // 
+            // buttonBeenden
+            // 
+            this.buttonBeenden.Location = new System.Drawing.Point(356, 185);
+            this.buttonBeenden.Name = "buttonBeenden";
+            this.buttonBeenden.Size = new System.Drawing.Size(129, 23);
+            this.buttonBeenden.TabIndex = 8;
+            this.buttonBeenden.Text = "Beenden";
+            this.buttonBeenden.UseVisualStyleBackColor = true;
             // 
             // FormSchuelerVerwaltung
             // 
@@ -381,6 +414,9 @@
         private System.Windows.Forms.Label labelFehlzeitenAnzeigenSchueler;
         private System.Windows.Forms.ComboBox comboBoxFehlzeitenAnzeigenSchueler;
         private System.Windows.Forms.TextBox textBoxFehlzeitenAnzeigenAusgabe;
+        private System.Windows.Forms.Button buttonBeenden;
+        private System.Windows.Forms.Button buttonFehlzeitenAnzeigenDatenSichern;
+        private System.Windows.Forms.Button buttonFehlzeitenAnzeigenDatenLaden;
     }
 }
 
