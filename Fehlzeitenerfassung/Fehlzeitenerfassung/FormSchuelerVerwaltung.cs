@@ -25,7 +25,7 @@ namespace Fehlzeitenerfassung
 
             //Lehrerdaten in den InMemoryStorage einlesen
             //Storages.InMemoryStorage.Store("Lists.Lehrer", CSVHandler.LehrerHandler.Convert(CSVHandler.ParseLines((await DataProvider.FileContentDataProvider.ProvideAsync<string>(new string[] { "Lehrer.csv" })).Split('\n'), ';')));
-            Storages.InMemoryStorage.Store("Lists.Lehrer", new List<Lehrer>());
+            Storages.InMemoryStorage.Store("Lists.Lehrer", new List<Lehrer>()); //Dummy
             //Combobox-Einträge hinzufügen
             foreach (Lehrer lehrer in Storages.InMemoryStorage.Restore<List<Lehrer>>("Lists.Lehrer"))
                 comboBoxBereichsleiter.Items.Add(lehrer.Name);
