@@ -28,9 +28,7 @@ namespace Fehlzeitenerfassung
             Storages.InMemoryStorage.Store("Lists.Lehrer", new List<Lehrer>());
             //Combobox-Einträge hinzufügen
             foreach (Lehrer lehrer in Storages.InMemoryStorage.Restore<List<Lehrer>>("Lists.Lehrer"))
-            {
                 comboBoxBereichsleiter.Items.Add(lehrer.Name);
-            }
         }
     }
 }
