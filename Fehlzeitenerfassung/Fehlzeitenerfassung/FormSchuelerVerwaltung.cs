@@ -1,8 +1,11 @@
 ﻿using Fehlzeitenerfassung.IO.CSVHandler;
 using Fehlzeitenerfassung.IO.DataProvider;
+using Fehlzeitenerfassung.IO.DataWriter;
 using Fehlzeitenerfassung.Storage;
 using Fehlzeitenerfassung.Structure.Person.Lehrer;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +24,7 @@ namespace Fehlzeitenerfassung
             //Initialisierung von Schnittstellenimplementationen
             Storages.Init();
             DataProvider.Init();
+            DataWriter.Init();
             CSVHandler.Init();
 
             //Lehrerdaten in den InMemoryStorage einlesen

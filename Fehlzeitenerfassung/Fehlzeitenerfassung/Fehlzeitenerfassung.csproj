@@ -65,6 +65,9 @@
     <Compile Include="IO\DataProvider\DataProvider.cs" />
     <Compile Include="IO\DataProvider\IDataProvider.cs" />
     <Compile Include="IO\DataProvider\Implementation\FileContentDataProvider.cs" />
+    <Compile Include="IO\DataWriter\DataWriter.cs" />
+    <Compile Include="IO\DataWriter\IDataWriter.cs" />
+    <Compile Include="IO\DataWriter\Implementation\FileContentDataWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\Implementation\InMemoryStorage.cs" />
