@@ -8,7 +8,7 @@ namespace Fehlzeitenerfassung.Structure.Person.Lehrer
 {
     class Lehrer : Person
     {
-        Fach[] Fächer { get; set; }
+        public Fach[] Fächer { get; set; }
 
         public Lehrer(string name, string vorname, DateTime geburtstag, Fach[] fächer) : base(name, vorname, geburtstag)
         {
