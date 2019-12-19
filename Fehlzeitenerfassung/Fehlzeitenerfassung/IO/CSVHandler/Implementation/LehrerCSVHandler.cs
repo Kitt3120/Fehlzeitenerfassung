@@ -33,5 +33,26 @@ namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
 
             return lehrerListe;
         }
+
+        public string[][] Revert(List<Lehrer> data)
+        {
+            List<string[]> entityList = new List<string[]>();
+            foreach (Lehrer lehrer in data)
+            {
+                List<string> entityParts = new List<string>();
+                entityParts.Add(lehrer.Name);
+                entityParts.Add(lehrer.Vorname);
+                entityParts.Add(lehrer.Geburtstag.ToString());
+                foreach (Fach fach in lehrer.Fächer)
+                {
+                    entityParts.Add(fach.Bezeichnung);
+                    entityParts.Add(fach.Kürzel);
+                }
+
+                entityList.Add(entityParts.ToArray());
+            }
+
+            return entityList.ToArray();
+        }
     }
 }

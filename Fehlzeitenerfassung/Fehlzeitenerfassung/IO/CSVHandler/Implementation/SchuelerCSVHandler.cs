@@ -37,5 +37,29 @@ namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
 
             return schuelerListe;
         }
+
+        public string[][] Revert(List<Schueler> data)
+        {
+            List<string[]> entityList = new List<string[]>();
+            foreach (Schueler schueler in data)
+            {
+                List<string> entityParts = new List<string>();
+                entityParts.Add(schueler.Name);
+                entityParts.Add(schueler.Vorname);
+                entityParts.Add(schueler.Geburtstag.ToString());
+                entityParts.Add(schueler.Anfahrtsweg.ToString());
+                entityParts.Add(schueler.Buskarte ? "true" : "false");
+                foreach (Fehlzeit fehlzeit in schueler.Fehlzeiten)
+                {
+                    entityParts.Add(fehlzeit.Datum.ToString());
+                    entityParts.Add(fehlzeit.Fehlstunden.ToString());
+                    entityParts.Add(fehlzeit.EntschuldigteStunden.ToString());
+                }
+
+                entityList.Add(entityParts.ToArray());
+            }
+
+            return entityList.ToArray();
+        }
     }
 }

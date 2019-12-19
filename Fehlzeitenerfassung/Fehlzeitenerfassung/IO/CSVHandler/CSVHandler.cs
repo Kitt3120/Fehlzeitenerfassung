@@ -2,6 +2,7 @@
 using Fehlzeitenerfassung.Structure.Person.Lehrer;
 using Fehlzeitenerfassung.Structure.Person.Schueler;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Fehlzeitenerfassung.IO.CSVHandler
 {
@@ -32,6 +33,22 @@ namespace Fehlzeitenerfassung.IO.CSVHandler
             }
 
             return csvEntries.ToArray();
+        }
+
+        public static string[] ComposeLines(string[][] lines, char splitCharacter)
+        {
+            List<string> composedLines = new List<string>();
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (string[] parts in lines)
+            {
+                foreach (string part in parts)
+                    stringBuilder.Append(part + splitCharacter);
+
+                composedLines.Add(stringBuilder.ToString());
+                stringBuilder.Clear();
+            }
+
+            return composedLines.ToArray();
         }
     }
 }
