@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
 {
-    class FileContentDataProvider : IDataProvider
+    class FileContentDataProvider : IDataProvider<string>
     {
-        public T Provide<T>(string[] args) where T : IConvertible
+        public string Provide(string[] args)
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has to be the file path");
+                throw new ArgumentException("args[0] has to be the file path");
 
             string content = string.Empty;
             using (StreamReader sr = new StreamReader(args[0]))
@@ -17,13 +17,13 @@ namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
                 while (!sr.EndOfStream)
                     content += $"{sr.ReadLine()}\n";
             }
-            return (T)Convert.ChangeType(content, typeof(T));
+            return (string)Convert.ChangeType(content, typeof(string));
         }
 
-        public async Task<T> ProvideAsync<T>(string[] args) where T : IConvertible
+        public async Task<string> ProvideAsync(string[] args)
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has to be the file path");
+                throw new ArgumentException("args[0] has to be the file path");
 
             string content = string.Empty;
             using (StreamReader sr = new StreamReader(args[0]))
@@ -31,7 +31,8 @@ namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
                 while (!sr.EndOfStream)
                     content += $"{await sr.ReadLineAsync()}\n";
             }
-            return (T)Convert.ChangeType(content, typeof(T));
+            content = content.Substring(0, content.Length - 1);
+            return (string)Convert.ChangeType(content, typeof(string));
         }
     }
 }

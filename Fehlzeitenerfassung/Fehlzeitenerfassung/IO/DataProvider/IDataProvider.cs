@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.DataProvider
 {
-    interface IDataProvider
+    interface IDataProvider<T> where T : IConvertible
     {
-        T Provide<T>(string[] args) where T : IConvertible;
-        Task<T> ProvideAsync<T>(string[] args) where T : IConvertible;
+        T Provide(string[] args);
+        Task<T> ProvideAsync(string[] args);
     }
 }

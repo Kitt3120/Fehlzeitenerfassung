@@ -13,7 +13,7 @@ namespace Fehlzeitenerfassung.IO.DataWriter.Implementation
         public void Write(IConvertible data, string[] args)
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has to be the file path");
+                throw new ArgumentException("args[0] has to be the file path");
 
 
             using(StreamWriter writer = new StreamWriter(args[0]))
@@ -23,7 +23,7 @@ namespace Fehlzeitenerfassung.IO.DataWriter.Implementation
         public async void WriteAsync(IConvertible data, string[] args)
         {
             if (args.Length == 0)
-                throw new NotImplementedException("args[0] has to be the file path");
+                throw new ArgumentException("args[0] has to be the file path");
 
             using (StreamWriter writer = new StreamWriter(args[0]))
                 await writer.WriteAsync((string)Convert.ChangeType(data, typeof(string)));
