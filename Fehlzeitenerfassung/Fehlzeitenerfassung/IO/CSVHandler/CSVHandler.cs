@@ -1,6 +1,7 @@
 ﻿using Fehlzeitenerfassung.IO.CSVHandler.Implementation;
 using Fehlzeitenerfassung.Structure.Person.Lehrer;
 using Fehlzeitenerfassung.Structure.Person.Schueler;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,7 +30,7 @@ namespace Fehlzeitenerfassung.IO.CSVHandler
                 if (line.EndsWith(splitCharacterString))
                     lineModified = line.Substring(0, line.Length - 1);
 
-                csvEntries.Add(line.Split(splitCharacter));
+                csvEntries.Add(lineModified.Split(splitCharacter));
             }
 
             return csvEntries.ToArray();
