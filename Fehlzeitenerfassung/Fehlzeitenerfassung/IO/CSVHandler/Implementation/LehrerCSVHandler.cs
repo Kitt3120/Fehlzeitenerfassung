@@ -1,9 +1,6 @@
-﻿using Fehlzeitenerfassung.IO.CSVHandler;
-using Fehlzeitenerfassung.Structure.Person.Lehrer;
+﻿using Fehlzeitenerfassung.Structure.Person.Lehrer;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
 {
@@ -42,7 +39,7 @@ namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
                 List<string> entityParts = new List<string>();
                 entityParts.Add(lehrer.Name);
                 entityParts.Add(lehrer.Vorname);
-                entityParts.Add(lehrer.Geburtstag.ToString());
+                entityParts.Add(lehrer.Geburtstag.ToString("dd/MM/yyyy"));
                 foreach (Fach fach in lehrer.Fächer)
                 {
                     entityParts.Add(fach.Bezeichnung);
