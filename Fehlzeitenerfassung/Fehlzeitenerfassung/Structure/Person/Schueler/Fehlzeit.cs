@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.Structure.Person.Schueler
 {
@@ -11,14 +7,20 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
         public DateTime Datum { get; set; }
         public int Fehlstunden { get; set; }
         public int EntschuldigteStunden { get; set; }
-        public int UnentschuldigteStunden { get
+        public int UnentschuldigteStunden
+        {
+            get
             {
                 return Fehlstunden - EntschuldigteStunden;
-            } }
-        public bool Entschuldigt { get
+            }
+        }
+        public bool Entschuldigt
+        {
+            get
             {
                 return Fehlstunden == EntschuldigteStunden;
-            } }
+            }
+        }
 
         public Fehlzeit(DateTime datum, int fehlstunden, int entschuldigteStunden)
         {
