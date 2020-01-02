@@ -45,11 +45,11 @@
             this.textBoxSchuelerVerwaltenVorname = new System.Windows.Forms.TextBox();
             this.groupBoxFehlzeitenVerwalten = new System.Windows.Forms.GroupBox();
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen = new System.Windows.Forms.Button();
-            this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt = new System.Windows.Forms.TextBox();
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt = new System.Windows.Forms.TextBox();
             this.labelFehlzeitenVerwaltenAnzahlEntschuldigt = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxFehlzeitenVerwaltenSchueler = new System.Windows.Forms.ComboBox();
             this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxFehlzeitenVerwaltenDatum = new System.Windows.Forms.TextBox();
             this.labelFehlzeitenVerwaltenAnzahlFehlstunden = new System.Windows.Forms.Label();
             this.labelFehlzeitenVerwaltenDatum = new System.Windows.Forms.Label();
             this.labelFehlzeitenVerwaltenSchueler = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@
             this.textBoxFehlzeitenAnzeigenAusgabe = new System.Windows.Forms.TextBox();
             this.comboBoxFehlzeitenAnzeigenSchueler = new System.Windows.Forms.ComboBox();
             this.labelFehlzeitenAnzeigenSchueler = new System.Windows.Forms.Label();
+            this.checkBoxFehlzeitenAnzeigenDetails = new System.Windows.Forms.CheckBox();
             this.groupBoxSchuelerVerwaltung.SuspendLayout();
             this.groupBoxFehlzeitenVerwalten.SuspendLayout();
             this.groupBoxFehlzeitenAnzeigen.SuspendLayout();
@@ -80,7 +81,7 @@
             this.comboBoxBereichsleiter.Location = new System.Drawing.Point(144, 6);
             this.comboBoxBereichsleiter.Name = "comboBoxBereichsleiter";
             this.comboBoxBereichsleiter.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxBereichsleiter.TabIndex = 1;
+            this.comboBoxBereichsleiter.TabIndex = 0;
             // 
             // groupBoxSchuelerVerwaltung
             // 
@@ -109,18 +110,20 @@
             this.buttonSchuelerVerwaltenSchuelerAnlegen.Location = new System.Drawing.Point(7, 129);
             this.buttonSchuelerVerwaltenSchuelerAnlegen.Name = "buttonSchuelerVerwaltenSchuelerAnlegen";
             this.buttonSchuelerVerwaltenSchuelerAnlegen.Size = new System.Drawing.Size(116, 23);
-            this.buttonSchuelerVerwaltenSchuelerAnlegen.TabIndex = 3;
+            this.buttonSchuelerVerwaltenSchuelerAnlegen.TabIndex = 6;
             this.buttonSchuelerVerwaltenSchuelerAnlegen.Text = "Schüler anlegen";
             this.buttonSchuelerVerwaltenSchuelerAnlegen.UseVisualStyleBackColor = true;
+            this.buttonSchuelerVerwaltenSchuelerAnlegen.Click += new System.EventHandler(this.buttonSchuelerVerwaltenSchuelerAnlegen_Click);
             // 
             // checkBoxSchuelerVerwaltenBusfahrkarte
             // 
             this.checkBoxSchuelerVerwaltenBusfahrkarte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSchuelerVerwaltenBusfahrkarte.AutoSize = true;
+            this.checkBoxSchuelerVerwaltenBusfahrkarte.Enabled = false;
             this.checkBoxSchuelerVerwaltenBusfahrkarte.Location = new System.Drawing.Point(204, 105);
             this.checkBoxSchuelerVerwaltenBusfahrkarte.Name = "checkBoxSchuelerVerwaltenBusfahrkarte";
             this.checkBoxSchuelerVerwaltenBusfahrkarte.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxSchuelerVerwaltenBusfahrkarte.TabIndex = 9;
+            this.checkBoxSchuelerVerwaltenBusfahrkarte.TabIndex = 5;
             this.checkBoxSchuelerVerwaltenBusfahrkarte.UseVisualStyleBackColor = true;
             // 
             // labelSchuelerVerwaltenBusfahrkarte
@@ -140,7 +143,8 @@
             this.textBoxSchuelerVerwaltenAnfahrt.Location = new System.Drawing.Point(85, 103);
             this.textBoxSchuelerVerwaltenAnfahrt.Name = "textBoxSchuelerVerwaltenAnfahrt";
             this.textBoxSchuelerVerwaltenAnfahrt.Size = new System.Drawing.Size(40, 20);
-            this.textBoxSchuelerVerwaltenAnfahrt.TabIndex = 7;
+            this.textBoxSchuelerVerwaltenAnfahrt.TabIndex = 4;
+            this.textBoxSchuelerVerwaltenAnfahrt.TextChanged += new System.EventHandler(this.textBoxSchuelerVerwaltenAnfahrt_TextChanged);
             // 
             // labelSchuelerVerwaltenAnfahrt
             // 
@@ -185,7 +189,7 @@
             this.textBoxSchuelerVerwaltenGeburtsdatum.Location = new System.Drawing.Point(85, 77);
             this.textBoxSchuelerVerwaltenGeburtsdatum.Name = "textBoxSchuelerVerwaltenGeburtsdatum";
             this.textBoxSchuelerVerwaltenGeburtsdatum.Size = new System.Drawing.Size(160, 20);
-            this.textBoxSchuelerVerwaltenGeburtsdatum.TabIndex = 1;
+            this.textBoxSchuelerVerwaltenGeburtsdatum.TabIndex = 3;
             // 
             // textBoxSchuelerVerwaltenName
             // 
@@ -194,7 +198,7 @@
             this.textBoxSchuelerVerwaltenName.Location = new System.Drawing.Point(85, 25);
             this.textBoxSchuelerVerwaltenName.Name = "textBoxSchuelerVerwaltenName";
             this.textBoxSchuelerVerwaltenName.Size = new System.Drawing.Size(160, 20);
-            this.textBoxSchuelerVerwaltenName.TabIndex = 0;
+            this.textBoxSchuelerVerwaltenName.TabIndex = 1;
             // 
             // textBoxSchuelerVerwaltenVorname
             // 
@@ -209,11 +213,11 @@
             // 
             this.groupBoxFehlzeitenVerwalten.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.buttonFehlzeitenVerwaltenFehlzeitAnlegen);
-            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt);
+            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt);
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.labelFehlzeitenVerwaltenAnzahlEntschuldigt);
-            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.comboBox1);
+            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.comboBoxFehlzeitenVerwaltenSchueler);
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden);
-            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.textBox2);
+            this.groupBoxFehlzeitenVerwalten.Controls.Add(this.textBoxFehlzeitenVerwaltenDatum);
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.labelFehlzeitenVerwaltenAnzahlFehlstunden);
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.labelFehlzeitenVerwaltenDatum);
             this.groupBoxFehlzeitenVerwalten.Controls.Add(this.labelFehlzeitenVerwaltenSchueler);
@@ -229,16 +233,17 @@
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.Location = new System.Drawing.Point(103, 129);
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.Name = "buttonFehlzeitenVerwaltenFehlzeitAnlegen";
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.Size = new System.Drawing.Size(116, 23);
-            this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.TabIndex = 9;
+            this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.TabIndex = 11;
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.Text = "Fehlzeit eintragen";
             this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.UseVisualStyleBackColor = true;
+            this.buttonFehlzeitenVerwaltenFehlzeitAnlegen.Click += new System.EventHandler(this.buttonFehlzeitenVerwaltenFehlzeitAnlegen_Click);
             // 
-            // textBoxFehlzeitenVerwaltenAnzahlEntschuldigt
+            // textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt
             // 
-            this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt.Location = new System.Drawing.Point(204, 77);
-            this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt.Name = "textBoxFehlzeitenVerwaltenAnzahlEntschuldigt";
-            this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt.Size = new System.Drawing.Size(25, 20);
-            this.textBoxFehlzeitenVerwaltenAnzahlEntschuldigt.TabIndex = 8;
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt.Location = new System.Drawing.Point(204, 77);
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt.Name = "textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt";
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt.Size = new System.Drawing.Size(25, 20);
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt.TabIndex = 10;
             // 
             // labelFehlzeitenVerwaltenAnzahlEntschuldigt
             // 
@@ -249,27 +254,27 @@
             this.labelFehlzeitenVerwaltenAnzahlEntschuldigt.TabIndex = 7;
             this.labelFehlzeitenVerwaltenAnzahlEntschuldigt.Text = "davon entschuldigt";
             // 
-            // comboBox1
+            // comboBoxFehlzeitenVerwaltenSchueler
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxFehlzeitenVerwaltenSchueler.FormattingEnabled = true;
+            this.comboBoxFehlzeitenVerwaltenSchueler.Location = new System.Drawing.Point(103, 25);
+            this.comboBoxFehlzeitenVerwaltenSchueler.Name = "comboBoxFehlzeitenVerwaltenSchueler";
+            this.comboBoxFehlzeitenVerwaltenSchueler.Size = new System.Drawing.Size(126, 21);
+            this.comboBoxFehlzeitenVerwaltenSchueler.TabIndex = 7;
             // 
             // textBoxFehlzeitenVerwaltenAnzahlFehlstunden
             // 
             this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden.Location = new System.Drawing.Point(77, 77);
             this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden.Name = "textBoxFehlzeitenVerwaltenAnzahlFehlstunden";
             this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden.Size = new System.Drawing.Size(25, 20);
-            this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden.TabIndex = 5;
+            this.textBoxFehlzeitenVerwaltenAnzahlFehlstunden.TabIndex = 9;
             // 
-            // textBox2
+            // textBoxFehlzeitenVerwaltenDatum
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(126, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBoxFehlzeitenVerwaltenDatum.Location = new System.Drawing.Point(103, 51);
+            this.textBoxFehlzeitenVerwaltenDatum.Name = "textBoxFehlzeitenVerwaltenDatum";
+            this.textBoxFehlzeitenVerwaltenDatum.Size = new System.Drawing.Size(126, 20);
+            this.textBoxFehlzeitenVerwaltenDatum.TabIndex = 8;
             // 
             // labelFehlzeitenVerwaltenAnzahlFehlstunden
             // 
@@ -303,6 +308,7 @@
             this.groupBoxFehlzeitenAnzeigen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.checkBoxFehlzeitenAnzeigenDetails);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonBeenden);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonFehlzeitenAnzeigenDatenSichern);
             this.groupBoxFehlzeitenAnzeigen.Controls.Add(this.buttonFehlzeitenAnzeigenDatenLaden);
@@ -322,9 +328,10 @@
             this.buttonBeenden.Location = new System.Drawing.Point(356, 185);
             this.buttonBeenden.Name = "buttonBeenden";
             this.buttonBeenden.Size = new System.Drawing.Size(129, 23);
-            this.buttonBeenden.TabIndex = 8;
+            this.buttonBeenden.TabIndex = 15;
             this.buttonBeenden.Text = "Beenden";
             this.buttonBeenden.UseVisualStyleBackColor = true;
+            this.buttonBeenden.Click += new System.EventHandler(this.buttonBeenden_Click);
             // 
             // buttonFehlzeitenAnzeigenDatenSichern
             // 
@@ -332,9 +339,10 @@
             this.buttonFehlzeitenAnzeigenDatenSichern.Location = new System.Drawing.Point(144, 185);
             this.buttonFehlzeitenAnzeigenDatenSichern.Name = "buttonFehlzeitenAnzeigenDatenSichern";
             this.buttonFehlzeitenAnzeigenDatenSichern.Size = new System.Drawing.Size(129, 23);
-            this.buttonFehlzeitenAnzeigenDatenSichern.TabIndex = 7;
+            this.buttonFehlzeitenAnzeigenDatenSichern.TabIndex = 14;
             this.buttonFehlzeitenAnzeigenDatenSichern.Text = "Schülerdaten sichern...";
             this.buttonFehlzeitenAnzeigenDatenSichern.UseVisualStyleBackColor = true;
+            this.buttonFehlzeitenAnzeigenDatenSichern.Click += new System.EventHandler(this.buttonFehlzeitenAnzeigenDatenSichern_Click);
             // 
             // buttonFehlzeitenAnzeigenDatenLaden
             // 
@@ -342,9 +350,10 @@
             this.buttonFehlzeitenAnzeigenDatenLaden.Location = new System.Drawing.Point(9, 185);
             this.buttonFehlzeitenAnzeigenDatenLaden.Name = "buttonFehlzeitenAnzeigenDatenLaden";
             this.buttonFehlzeitenAnzeigenDatenLaden.Size = new System.Drawing.Size(129, 23);
-            this.buttonFehlzeitenAnzeigenDatenLaden.TabIndex = 6;
+            this.buttonFehlzeitenAnzeigenDatenLaden.TabIndex = 13;
             this.buttonFehlzeitenAnzeigenDatenLaden.Text = "Schülerdaten laden...";
             this.buttonFehlzeitenAnzeigenDatenLaden.UseVisualStyleBackColor = true;
+            this.buttonFehlzeitenAnzeigenDatenLaden.Click += new System.EventHandler(this.buttonFehlzeitenAnzeigenDatenLaden_Click);
             // 
             // textBoxFehlzeitenAnzeigenAusgabe
             // 
@@ -354,8 +363,11 @@
             this.textBoxFehlzeitenAnzeigenAusgabe.Location = new System.Drawing.Point(6, 49);
             this.textBoxFehlzeitenAnzeigenAusgabe.Multiline = true;
             this.textBoxFehlzeitenAnzeigenAusgabe.Name = "textBoxFehlzeitenAnzeigenAusgabe";
+            this.textBoxFehlzeitenAnzeigenAusgabe.ReadOnly = true;
+            this.textBoxFehlzeitenAnzeigenAusgabe.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxFehlzeitenAnzeigenAusgabe.Size = new System.Drawing.Size(479, 130);
-            this.textBoxFehlzeitenAnzeigenAusgabe.TabIndex = 5;
+            this.textBoxFehlzeitenAnzeigenAusgabe.TabIndex = 0;
+            this.textBoxFehlzeitenAnzeigenAusgabe.TabStop = false;
             // 
             // comboBoxFehlzeitenAnzeigenSchueler
             // 
@@ -363,7 +375,8 @@
             this.comboBoxFehlzeitenAnzeigenSchueler.Location = new System.Drawing.Point(55, 22);
             this.comboBoxFehlzeitenAnzeigenSchueler.Name = "comboBoxFehlzeitenAnzeigenSchueler";
             this.comboBoxFehlzeitenAnzeigenSchueler.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFehlzeitenAnzeigenSchueler.TabIndex = 4;
+            this.comboBoxFehlzeitenAnzeigenSchueler.TabIndex = 12;
+            this.comboBoxFehlzeitenAnzeigenSchueler.SelectedIndexChanged += new System.EventHandler(this.comboBoxFehlzeitenAnzeigenSchueler_SelectedIndexChanged);
             // 
             // labelFehlzeitenAnzeigenSchueler
             // 
@@ -373,6 +386,17 @@
             this.labelFehlzeitenAnzeigenSchueler.Size = new System.Drawing.Size(43, 13);
             this.labelFehlzeitenAnzeigenSchueler.TabIndex = 3;
             this.labelFehlzeitenAnzeigenSchueler.Text = "Schüler";
+            // 
+            // checkBoxFehlzeitenAnzeigenDetails
+            // 
+            this.checkBoxFehlzeitenAnzeigenDetails.AutoSize = true;
+            this.checkBoxFehlzeitenAnzeigenDetails.Location = new System.Drawing.Point(182, 24);
+            this.checkBoxFehlzeitenAnzeigenDetails.Name = "checkBoxFehlzeitenAnzeigenDetails";
+            this.checkBoxFehlzeitenAnzeigenDetails.Size = new System.Drawing.Size(58, 17);
+            this.checkBoxFehlzeitenAnzeigenDetails.TabIndex = 16;
+            this.checkBoxFehlzeitenAnzeigenDetails.Text = "Details";
+            this.checkBoxFehlzeitenAnzeigenDetails.UseVisualStyleBackColor = true;
+            this.checkBoxFehlzeitenAnzeigenDetails.CheckedChanged += new System.EventHandler(this.checkBoxFehlzeitenAnzeigenDetails_CheckedChanged);
             // 
             // FormSchuelerVerwaltung
             // 
@@ -418,13 +442,13 @@
         private System.Windows.Forms.TextBox textBoxSchuelerVerwaltenVorname;
         private System.Windows.Forms.GroupBox groupBoxFehlzeitenVerwalten;
         private System.Windows.Forms.Label labelFehlzeitenVerwaltenAnzahlEntschuldigt;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxFehlzeitenVerwaltenSchueler;
         private System.Windows.Forms.TextBox textBoxFehlzeitenVerwaltenAnzahlFehlstunden;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxFehlzeitenVerwaltenDatum;
         private System.Windows.Forms.Label labelFehlzeitenVerwaltenAnzahlFehlstunden;
         private System.Windows.Forms.Label labelFehlzeitenVerwaltenDatum;
         private System.Windows.Forms.Label labelFehlzeitenVerwaltenSchueler;
-        private System.Windows.Forms.TextBox textBoxFehlzeitenVerwaltenAnzahlEntschuldigt;
+        private System.Windows.Forms.TextBox textBoxFehlzeitenVerwaltenAnzahlFehlstundenEntschuldigt;
         private System.Windows.Forms.Button buttonFehlzeitenVerwaltenFehlzeitAnlegen;
         private System.Windows.Forms.GroupBox groupBoxFehlzeitenAnzeigen;
         private System.Windows.Forms.Label labelFehlzeitenAnzeigenSchueler;
@@ -433,6 +457,7 @@
         private System.Windows.Forms.Button buttonBeenden;
         private System.Windows.Forms.Button buttonFehlzeitenAnzeigenDatenSichern;
         private System.Windows.Forms.Button buttonFehlzeitenAnzeigenDatenLaden;
+        private System.Windows.Forms.CheckBox checkBoxFehlzeitenAnzeigenDetails;
     }
 }
 
