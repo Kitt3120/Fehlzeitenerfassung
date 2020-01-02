@@ -14,11 +14,11 @@ namespace Fehlzeitenerfassung.Storage.Implementation
 
         public void Store(string key, object obj) => _data[key] = obj;
 
-        public T Restore<T>(string key)
+        public T Access<T>(string key)
         {
             if (!Exists(key))
                 throw new ArgumentException($"An object stored by the key {key} was not found");
-            return (T) _data[key];
+            return (T)_data[key];
         }
 
         public bool Exists(string key) => _data.ContainsKey(key);
