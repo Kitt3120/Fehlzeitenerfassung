@@ -1,11 +1,6 @@
-﻿using Fehlzeitenerfassung.IO.CSVHandler;
-using Fehlzeitenerfassung.Structure.Person.Schueler;
+﻿using Fehlzeitenerfassung.Structure.Person.Schueler;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
 {
@@ -46,12 +41,12 @@ namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
                 List<string> entityParts = new List<string>();
                 entityParts.Add(schueler.Name);
                 entityParts.Add(schueler.Vorname);
-                entityParts.Add(schueler.Geburtstag.ToString());
+                entityParts.Add(schueler.Geburtstag.ToString("dd/MM/yyyy"));
                 entityParts.Add(schueler.Anfahrtsweg.ToString());
-                entityParts.Add(schueler.Buskarte ? "true" : "false");
+                entityParts.Add(schueler.Buskarte ? "1" : "0");
                 foreach (Fehlzeit fehlzeit in schueler.Fehlzeiten)
                 {
-                    entityParts.Add(fehlzeit.Datum.ToString());
+                    entityParts.Add(fehlzeit.Datum.ToString("dd/MM/yyyy"));
                     entityParts.Add(fehlzeit.Fehlstunden.ToString());
                     entityParts.Add(fehlzeit.EntschuldigteStunden.ToString());
                 }
