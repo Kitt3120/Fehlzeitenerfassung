@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.DataWriter
 {
-    interface IDataWriter
+    interface IDataWriter<T>
     {
-        public void Write(IConvertible data, string[] args);
-        void WriteAsync(IConvertible data, string[] args);
+        public void Write(T data, string[] args);
+        Task WriteAsync(T data, string[] args);
     }
 }
