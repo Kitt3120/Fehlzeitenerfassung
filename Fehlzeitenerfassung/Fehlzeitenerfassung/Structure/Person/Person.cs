@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.Structure.Person
 {
@@ -18,5 +14,6 @@ namespace Fehlzeitenerfassung.Structure.Person
             Vorname = vorname;
             Geburtstag = geburtstag;
         }
+        public override string ToString() => $"{Name} {Vorname}";
     }
 }
