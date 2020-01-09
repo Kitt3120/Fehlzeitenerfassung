@@ -64,7 +64,7 @@ namespace Fehlzeitenerfassung
             catch (FileNotFoundException)
             {
                 Storages.InMemoryStorage.Store("Lists.Schueler", new List<Schueler>());
-                MessageBox.Show("Es wurde keine Schueler.csv gefunden!\nSollte es der erste Start des Programms sein, ist dies normal.", "Schueler.csv fehlt!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Es wurde keine Schueler.csv gefunden!\nSollte es der erste Start des Programms sein, ist dies normal.\nAchten Sie darauf, nach dem Anlegen von Schülern zu speichern!", "Schueler.csv fehlt!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace Fehlzeitenerfassung
                 return;
             }
 
-            //GUI refreshen
+            //Nach Auslesen GUI refreshen
             RefreshGui();
         }
 
@@ -285,6 +285,7 @@ namespace Fehlzeitenerfassung
         {
             Lehrer, Schueler
         }
+
         private async Task LoadData(string path, DataType dataType)
         {
             string content = await DataProvider.FileContentDataProvider.ProvideAsync(new string[] { path });
