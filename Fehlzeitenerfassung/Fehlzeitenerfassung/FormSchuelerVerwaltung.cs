@@ -56,22 +56,8 @@ namespace Fehlzeitenerfassung
                 return;
             }
 
-            //Schueler
-            try
-            {
-                await LoadData("Schueler.csv", DataType.Schueler);
-            }
-            catch (FileNotFoundException)
-            {
-                Storages.InMemoryStorage.Store("Lists.Schueler", new List<Schueler>());
-                MessageBox.Show("Es wurde keine Schueler.csv gefunden!\nSollte es der erste Start des Programms sein, ist dies normal.\nAchten Sie darauf, nach dem Anlegen von Schülern zu speichern!", "Schueler.csv fehlt!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Es ist ein unbekannter Fehler aufgetreten!\n" + ex.StackTrace.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(1);
-                return;
-            }
+            //Schueler (werden manuell eingelesen)
+            Storages.InMemoryStorage.Store("Lists.Schueler", new List<Schueler>());
 
             //Nach Auslesen GUI refreshen
             RefreshGui();
@@ -162,27 +148,41 @@ namespace Fehlzeitenerfassung
 
         private async void buttonFehlzeitenAnzeigenDatenLaden_Click(object sender, EventArgs e)
         {
-            try
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Schülerdatei auslesen";
+            openFileDialog.Filter = "CSV-Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.CheckFileExists = true;
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                await LoadData("Schueler.csv", DataType.Schueler);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Es ist ein unbekannter Fehler aufgetreten!\n" + ex.StackTrace.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                try
+                {
+                    await LoadData(openFileDialog.FileName, DataType.Schueler);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein unbekannter Fehler aufgetreten!\n" + ex.StackTrace.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-            RefreshGui();
+                RefreshGui();
+            }
         }
 
         private async void buttonFehlzeitenAnzeigenDatenSichern_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Schülerdatei speichern";
+            saveFileDialog.Filter = "CSV-Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                await SaveData("Schueler.csv", DataType.Schueler);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Es ist ein unbekannter Fehler aufgetreten!\n" + ex.StackTrace.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    await SaveData(saveFileDialog.FileName, DataType.Schueler);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Es ist ein unbekannter Fehler aufgetreten!\n" + ex.StackTrace.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
