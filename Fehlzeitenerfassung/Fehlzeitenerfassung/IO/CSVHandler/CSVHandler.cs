@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Fehlzeitenerfassung.IO.CSVHandler
 {
-    class CSVHandler
+    internal class CSVHandler
     {
         public static ICSVHandler<Schueler> SchuelerHandler { get; private set; }
         public static ICSVHandler<Lehrer> LehrerHandler { get; private set; }

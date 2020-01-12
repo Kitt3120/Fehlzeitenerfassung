@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Fehlzeitenerfassung.IO.CSVHandler.Implementation
 {
-    class SchuelerCSVHandler : ICSVHandler<Schueler>
+    internal class SchuelerCSVHandler : ICSVHandler<Schueler>
     {
         public List<Schueler> Convert(string[][] parsedLines)
         {

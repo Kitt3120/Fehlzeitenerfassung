@@ -25,7 +25,6 @@ namespace Fehlzeitenerfassung
 
         private async void FormSchuelerVerwaltung_Load(object sender, System.EventArgs e)
         {
-
             /*
              * Initialisierung von Schnittstellenimplementationen
              */
@@ -128,7 +127,7 @@ namespace Fehlzeitenerfassung
             }
 
             int fehlstunden;
-            if(!int.TryParse(textBoxFehlzeitenVerwaltenAnzahlFehlstunden.Text, out fehlstunden))
+            if (!int.TryParse(textBoxFehlzeitenVerwaltenAnzahlFehlstunden.Text, out fehlstunden))
             {
                 MessageBox.Show("Die Anzahl an Fehlstunden ist ungültig!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -153,7 +152,7 @@ namespace Fehlzeitenerfassung
             openFileDialog.Filter = "CSV-Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
             openFileDialog.CheckPathExists = true;
             openFileDialog.CheckFileExists = true;
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
@@ -173,7 +172,7 @@ namespace Fehlzeitenerfassung
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Schülerdatei speichern";
             saveFileDialog.Filter = "CSV-Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
@@ -238,7 +237,6 @@ namespace Fehlzeitenerfassung
             }
         }
 
-
         private void RefreshGui()
         {
             /*
@@ -276,7 +274,6 @@ namespace Fehlzeitenerfassung
             }
         }
 
-
         /*
          * Methoden, um einfach Daten auszulesen / zu speichern
          */
@@ -296,9 +293,11 @@ namespace Fehlzeitenerfassung
                 case DataType.Lehrer:
                     Storages.InMemoryStorage.Store("Lists.Lehrer", CSVHandler.LehrerHandler.Convert(parsedLines));
                     break;
+
                 case DataType.Schueler:
                     Storages.InMemoryStorage.Store("Lists.Schueler", CSVHandler.SchuelerHandler.Convert(parsedLines));
                     break;
+
                 default:
                     break;
             }
@@ -311,9 +310,11 @@ namespace Fehlzeitenerfassung
                 case DataType.Lehrer:
                     await DataWriter.FileContentDataWriter.WriteAsync(string.Join("\n", CSVHandler.ComposeLines(CSVHandler.LehrerHandler.Revert(Storages.InMemoryStorage.Access<List<Lehrer>>("Lists.Lehrer")), ';')), new string[] { path });
                     break;
+
                 case DataType.Schueler:
                     await DataWriter.FileContentDataWriter.WriteAsync(string.Join("\n", CSVHandler.ComposeLines(CSVHandler.SchuelerHandler.Revert(Storages.InMemoryStorage.Access<List<Schueler>>("Lists.Schueler")), ';')), new string[] { path });
                     break;
+
                 default:
                     break;
             }
