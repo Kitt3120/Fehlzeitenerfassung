@@ -2,7 +2,7 @@
 
 namespace Fehlzeitenerfassung.Structure.Person.Lehrer
 {
-    class Lehrer : Person
+    internal class Lehrer : Person
     {
         public Fach[] Fächer { get; set; }
 

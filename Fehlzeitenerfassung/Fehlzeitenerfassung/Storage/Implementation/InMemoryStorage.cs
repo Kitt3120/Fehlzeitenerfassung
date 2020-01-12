@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Fehlzeitenerfassung.Storage.Implementation
 {
-    class InMemoryStorage : IStorage
+    internal class InMemoryStorage : IStorage
     {
         private Dictionary<string, object> _data;
 

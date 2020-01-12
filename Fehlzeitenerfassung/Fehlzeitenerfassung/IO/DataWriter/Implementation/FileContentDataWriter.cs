@@ -4,13 +4,12 @@ using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.DataWriter.Implementation
 {
-    class FileContentDataWriter : IDataWriter<string>
+    internal class FileContentDataWriter : IDataWriter<string>
     {
         public void Write(string data, string[] args)
         {
             if (args.Length == 0)
                 throw new ArgumentException("args[0] has to be the file path");
-
 
             using (StreamWriter writer = new StreamWriter(args[0]))
                 writer.Write(data);

@@ -2,7 +2,7 @@
 
 namespace Fehlzeitenerfassung.IO.DataProvider
 {
-    class DataProvider
+    internal class DataProvider
     {
         public static IDataProvider<string> FileContentDataProvider { get; private set; }
 

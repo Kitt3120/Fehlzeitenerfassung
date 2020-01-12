@@ -2,7 +2,7 @@
 
 namespace Fehlzeitenerfassung.Storage
 {
-    class Storages
+    internal class Storages
     {
         public static IStorage InMemoryStorage { get; private set; }
 

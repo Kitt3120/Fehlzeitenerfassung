@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Fehlzeitenerfassung.IO.DataProvider.Implementation
 {
-    class FileContentDataProvider : IDataProvider<string>
+    internal class FileContentDataProvider : IDataProvider<string>
     {
         public string Provide(string[] args)
         {

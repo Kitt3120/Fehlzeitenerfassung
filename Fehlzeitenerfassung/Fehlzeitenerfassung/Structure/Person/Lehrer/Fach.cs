@@ -1,6 +1,6 @@
 ﻿namespace Fehlzeitenerfassung.Structure.Person.Lehrer
 {
-    class Fach
+    internal class Fach
     {
         public string Bezeichnung { get; set; }
         public string Kürzel { get; set; }

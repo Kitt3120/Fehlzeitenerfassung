@@ -2,7 +2,7 @@
 
 namespace Fehlzeitenerfassung.Structure.Person
 {
-    class Person
+    internal class Person
     {
         public string Name { get; set; }
         public string Vorname { get; set; }
@@ -14,6 +14,7 @@ namespace Fehlzeitenerfassung.Structure.Person
             Vorname = vorname;
             Geburtstag = geburtstag;
         }
+
         public override string ToString() => $"{Name} {Vorname}";
     }
 }

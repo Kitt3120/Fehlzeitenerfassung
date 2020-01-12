@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Fehlzeitenerfassung.Structure.Person.Schueler
 {
-    class Schueler : Person
+    internal class Schueler : Person
     {
         public double Anfahrtsweg { get; set; }
         public bool Buskarte { get; set; }
@@ -80,11 +80,17 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
         }
 
         public bool HatGefehltAm(DateTime datum) => Fehlzeiten.Any(fehlzeit => fehlzeit.Datum == datum.Date); //datum.Date, um Zeit zu ignorieren, falls angegeben
+
         public Fehlzeit Fehlzeit(DateTime datum) => Fehlzeiten.Where(fehlzeit => fehlzeit.Datum == datum.Date).FirstOrDefault();
+
         public int FehlzeitenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.Fehlstunden).Sum();
+
         public int EntschuldigteStundenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.EntschuldigteStunden).Sum();
+
         public int UnentschuldigteStundenSumme() => Fehlzeiten.Select(fehlzeit => fehlzeit.UnentschuldigteStunden).Sum();
+
         public void UnregistriereFehlstunde(Fehlzeit fehlzeit) => Fehlzeiten.Remove(fehlzeit);
+
         public void UnregistriereFehlstunde(DateTime datum) => Fehlzeiten.Remove(Fehlzeiten.Where(fehlstunde => fehlstunde.Datum == datum.Date).FirstOrDefault());
     }
 }

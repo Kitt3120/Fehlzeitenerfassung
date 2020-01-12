@@ -2,7 +2,7 @@
 
 namespace Fehlzeitenerfassung.IO.DataWriter
 {
-    class DataWriter
+    internal class DataWriter
     {
         public static IDataWriter<string> FileContentDataWriter { get; private set; }
 

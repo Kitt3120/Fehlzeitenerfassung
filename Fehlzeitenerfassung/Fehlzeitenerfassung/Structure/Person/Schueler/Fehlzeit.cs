@@ -2,11 +2,12 @@
 
 namespace Fehlzeitenerfassung.Structure.Person.Schueler
 {
-    class Fehlzeit
+    internal class Fehlzeit
     {
         public DateTime Datum { get; set; }
         public int Fehlstunden { get; set; }
         public int EntschuldigteStunden { get; set; }
+
         public int UnentschuldigteStunden
         {
             get
@@ -14,6 +15,7 @@ namespace Fehlzeitenerfassung.Structure.Person.Schueler
                 return Fehlstunden - EntschuldigteStunden;
             }
         }
+
         public bool Entschuldigt
         {
             get
