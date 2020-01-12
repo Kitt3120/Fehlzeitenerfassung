@@ -54,13 +54,13 @@
             this.labelFehlzeitenVerwaltenDatum = new System.Windows.Forms.Label();
             this.labelFehlzeitenVerwaltenSchueler = new System.Windows.Forms.Label();
             this.groupBoxFehlzeitenAnzeigen = new System.Windows.Forms.GroupBox();
+            this.checkBoxFehlzeitenAnzeigenDetails = new System.Windows.Forms.CheckBox();
             this.buttonBeenden = new System.Windows.Forms.Button();
             this.buttonFehlzeitenAnzeigenDatenSichern = new System.Windows.Forms.Button();
             this.buttonFehlzeitenAnzeigenDatenLaden = new System.Windows.Forms.Button();
             this.textBoxFehlzeitenAnzeigenAusgabe = new System.Windows.Forms.TextBox();
             this.comboBoxFehlzeitenAnzeigenSchueler = new System.Windows.Forms.ComboBox();
             this.labelFehlzeitenAnzeigenSchueler = new System.Windows.Forms.Label();
-            this.checkBoxFehlzeitenAnzeigenDetails = new System.Windows.Forms.CheckBox();
             this.groupBoxSchuelerVerwaltung.SuspendLayout();
             this.groupBoxFehlzeitenVerwalten.SuspendLayout();
             this.groupBoxFehlzeitenAnzeigen.SuspendLayout();
@@ -77,6 +77,7 @@
             // 
             // comboBoxBereichsleiter
             // 
+            this.comboBoxBereichsleiter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBereichsleiter.FormattingEnabled = true;
             this.comboBoxBereichsleiter.Location = new System.Drawing.Point(144, 6);
             this.comboBoxBereichsleiter.Name = "comboBoxBereichsleiter";
@@ -256,6 +257,7 @@
             // 
             // comboBoxFehlzeitenVerwaltenSchueler
             // 
+            this.comboBoxFehlzeitenVerwaltenSchueler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFehlzeitenVerwaltenSchueler.FormattingEnabled = true;
             this.comboBoxFehlzeitenVerwaltenSchueler.Location = new System.Drawing.Point(103, 25);
             this.comboBoxFehlzeitenVerwaltenSchueler.Name = "comboBoxFehlzeitenVerwaltenSchueler";
@@ -322,6 +324,17 @@
             this.groupBoxFehlzeitenAnzeigen.TabStop = false;
             this.groupBoxFehlzeitenAnzeigen.Text = "Fehlzeiten anzeigen";
             // 
+            // checkBoxFehlzeitenAnzeigenDetails
+            // 
+            this.checkBoxFehlzeitenAnzeigenDetails.AutoSize = true;
+            this.checkBoxFehlzeitenAnzeigenDetails.Location = new System.Drawing.Point(182, 24);
+            this.checkBoxFehlzeitenAnzeigenDetails.Name = "checkBoxFehlzeitenAnzeigenDetails";
+            this.checkBoxFehlzeitenAnzeigenDetails.Size = new System.Drawing.Size(58, 17);
+            this.checkBoxFehlzeitenAnzeigenDetails.TabIndex = 16;
+            this.checkBoxFehlzeitenAnzeigenDetails.Text = "Details";
+            this.checkBoxFehlzeitenAnzeigenDetails.UseVisualStyleBackColor = true;
+            this.checkBoxFehlzeitenAnzeigenDetails.CheckedChanged += new System.EventHandler(this.checkBoxFehlzeitenAnzeigenDetails_CheckedChanged);
+            // 
             // buttonBeenden
             // 
             this.buttonBeenden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -371,6 +384,7 @@
             // 
             // comboBoxFehlzeitenAnzeigenSchueler
             // 
+            this.comboBoxFehlzeitenAnzeigenSchueler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFehlzeitenAnzeigenSchueler.FormattingEnabled = true;
             this.comboBoxFehlzeitenAnzeigenSchueler.Location = new System.Drawing.Point(55, 22);
             this.comboBoxFehlzeitenAnzeigenSchueler.Name = "comboBoxFehlzeitenAnzeigenSchueler";
@@ -386,17 +400,6 @@
             this.labelFehlzeitenAnzeigenSchueler.Size = new System.Drawing.Size(43, 13);
             this.labelFehlzeitenAnzeigenSchueler.TabIndex = 3;
             this.labelFehlzeitenAnzeigenSchueler.Text = "Schüler";
-            // 
-            // checkBoxFehlzeitenAnzeigenDetails
-            // 
-            this.checkBoxFehlzeitenAnzeigenDetails.AutoSize = true;
-            this.checkBoxFehlzeitenAnzeigenDetails.Location = new System.Drawing.Point(182, 24);
-            this.checkBoxFehlzeitenAnzeigenDetails.Name = "checkBoxFehlzeitenAnzeigenDetails";
-            this.checkBoxFehlzeitenAnzeigenDetails.Size = new System.Drawing.Size(58, 17);
-            this.checkBoxFehlzeitenAnzeigenDetails.TabIndex = 16;
-            this.checkBoxFehlzeitenAnzeigenDetails.Text = "Details";
-            this.checkBoxFehlzeitenAnzeigenDetails.UseVisualStyleBackColor = true;
-            this.checkBoxFehlzeitenAnzeigenDetails.CheckedChanged += new System.EventHandler(this.checkBoxFehlzeitenAnzeigenDetails_CheckedChanged);
             // 
             // FormSchuelerVerwaltung
             // 
